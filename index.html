@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07060b">
+<meta name="description" content="LearnX — Premium Learning OS">
+<title>LearnX — Premium Learning OS</title>
+<link rel="stylesheet" href="styles.css?v=final3"><link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+<div class="ambient" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
+
+<section id="gate" class="gate">
+  <div class="gate-orbit orbit-a"></div><div class="gate-orbit orbit-b"></div>
+  <div class="gate-card glass">
+    <div class="brand"><span class="brand-mark">LX</span><span>LEARNX</span></div>
+    <div class="gate-lock" aria-hidden="true"></div>
+    <h1>Verifikasi Akses</h1>
+    <p class="muted">Sentuh sensor untuk membuka Learning OS.</p>
+    <button id="fingerprint" class="fingerprint" aria-label="Mulai simulasi sidik jari">
+      <img src="assets/fingerprint-reference.png" alt="" class="fp-ref">
+      <span class="fp-scan"></span>
+      <span class="fp-core"></span>
+    </button>
+    <div id="authStatus" class="auth-status"><span></span>SENSOR SIAP</div>
+    <small>SIMULASI BIOMETRIK · DATA TIDAK DIKIRIM</small>
+  </div>
+</section>
+
+<section id="intro" class="intro hidden" aria-label="Intro LearnX">
+  <video id="introVideo" playsinline webkit-playsinline preload="auto" poster="assets/intro-poster.jpg" loop>
+    <source src="assets/intro.mp4" type="video/mp4">
+  </video>
+  <div class="intro-shade"></div>
+  <div class="intro-ui">
+    <span class="pill">LEARNX · INTRO</span>
+    <button id="introSound" class="glass icon-button" aria-label="Suara intro"><span data-icon="volume-off"></span></button>
+  </div>
+  <div id="introError" class="media-error hidden">MEDIA INTRO TIDAK DAPAT DIMUAT</div>
+  <div id="nextWrap" class="next-wrap hidden">
+    <span>INTRO SELESAI · VIDEO MENGULANG</span>
+    <button id="nextBtn" class="primary">Berikutnya <b>→</b></button>
+  </div>
+</section>
+
+<div id="app" class="app hidden">
+  <header class="topbar glass">
+    <button id="menuBtn" class="icon-button mobile-only" aria-label="Menu"><span data-icon="menu"></span></button>
+    <div class="top-title"><span class="live-dot"></span><span>LEARNX</span><small>LEARNING OS</small></div>
+    <div class="top-search"><span data-icon="search"></span><input id="search" placeholder="Cari materi, fitur, atau modul..." autocomplete="off"><kbd>⌘ K</kbd></div>
+    <div class="top-actions">
+      <button id="musicBtn" class="icon-button" aria-label="Music"><span data-icon="music"></span></button>
+      <button id="themeBtn" class="icon-button" aria-label="Tema"><span data-icon="sun"></span></button>
+      <button id="commandBtn" class="icon-button" aria-label="Command"><span data-icon="command"></span></button>
+    </div>
+  </header>
+
+  <aside id="sidebar" class="sidebar glass">
+    <div class="side-brand"><span class="brand-mark">LX</span><div><b>LearnX</b><small>Premium Learning OS</small></div></div>
+    <nav id="nav">
+      <button class="nav active" data-page="dashboard"><span data-icon="home"></span>Dashboard</button>
+      <button class="nav" data-page="curriculum"><span data-icon="book"></span>Kurikulum</button>
+      <button class="nav" data-page="iq"><span data-icon="brain"></span>Tes IQ</button>
+      <button class="nav" data-page="japanese"><span data-icon="japan"></span>Bahasa Jepang</button>
+      <button class="nav" data-page="psychology"><span data-icon="mind"></span>Psikologi</button>
+      <button class="nav" data-page="focus"><span data-icon="focus"></span>Focus Room</button>
+      <button class="nav" data-page="notes"><span data-icon="note"></span>Catatan</button>
+      <button class="nav" data-page="progress"><span data-icon="chart"></span>Progress</button>
+    </nav>
+    <div class="side-bottom"><div class="system-state"><span></span><div><b>CORE ONLINE</b><small id="systemState">Semua sistem normal</small></div></div><button class="nav" data-page="settings"><span data-icon="settings"></span>Pengaturan</button></div>
+  </aside>
+
+  <main class="main">
+    <section id="dashboard" class="page active">
+      <div class="dashboard-head">
+        <div><span class="kicker">LEARNX · HOME</span><h1>Ruang belajar<br><strong>tanpa gangguan.</strong></h1><p>Satu tempat untuk kurikulum, bahasa, logika, fokus, dan progres.</p></div>
+        <div class="head-clock"><small>LOCAL SYSTEM</small><b id="clock">--:--</b><span id="date">--</span></div>
+      </div>
+
+      <section class="base-video glass">
+        <div class="base-video-media">
+          <video id="dashboardVideo" playsinline webkit-playsinline preload="metadata" muted poster="assets/dashboard-base-poster.jpg" loop>
+            <source src="assets/dashboard-base.mp4" type="video/mp4">
+          </video>
+          <div class="base-overlay"></div>
+          <div class="base-label"><span class="live-dot"></span><b>LEARNX BASE</b><small>VISUAL STUDY MODE</small></div>
+          <button id="dashboardMute" class="media-mute" aria-label="Nyalakan suara video"><span data-icon="volume-off"></span></button>
+        </div>
+      </section>
+
+      <section class="curriculum-zone">
+        <div class="section-head"><div><span class="kicker">CURRICULUM</span><h2>Ruang belajar</h2></div><button class="text-link" data-page="curriculum">Semua modul <span>→</span></button></div>
+        <div class="rail" id="rail">
+          <button class="course" data-page="curriculum"><span class="course-icon">∑</span><b>Matematika</b><small>12 modul · 78%</small><i style="--p:78%"></i></button>
+          <button class="course" data-page="japanese"><span class="course-icon">文</span><b>Bahasa Jepang</b><small>18 modul · 64%</small><i style="--p:64%"></i></button>
+          <button class="course" data-page="curriculum"><span class="course-icon">A</span><b>Bahasa Inggris</b><small>10 modul · 82%</small><i style="--p:82%"></i></button>
+          <button class="course" data-page="curriculum"><span class="course-icon">⌬</span><b>IPA</b><small>11 modul · 70%</small><i style="--p:70%"></i></button>
+          <button class="course" data-page="curriculum"><span class="course-icon">◎</span><b>IPS</b><small>9 modul · 60%</small><i style="--p:60%"></i></button>
+          <button class="course" data-page="curriculum"><span class="course-icon">P</span><b>PKN</b><small>8 modul · 88%</small><i style="--p:88%"></i></button>
+          <button class="course" data-page="curriculum"><span class="course-icon">⌘</span><b>Informatika</b><small>14 modul · 75%</small><i style="--p:75%"></i></button>
+        </div>
+      </section>
+
+      <section class="feature-grid">
+        <button class="feature glass" data-page="iq"><span data-icon="brain"></span><div><small>COGNITIVE LAB</small><b>Tes IQ & Logika</b><p>Set soal baru setiap sesi.</p></div><em>→</em></button>
+        <button class="feature glass" data-page="japanese"><span data-icon="japan"></span><div><small>LANGUAGE LAB</small><b>Bahasa Jepang</b><p>Hiragana sampai percakapan.</p></div><em>→</em></button>
+        <button class="feature glass" data-page="psychology"><span data-icon="mind"></span><div><small>MIND LAB</small><b>Psikologi</b><p>Komunikasi, bias, dan kecerdasan sosial.</p></div><em>→</em></button>
+        <button class="feature glass" data-page="focus"><span data-icon="focus"></span><div><small>DEEP WORK</small><b>Focus Room</b><p>Pomodoro yang ringan dan lancar.</p></div><em>→</em></button>
+      </section>
+
+      <section class="lower-grid">
+        <article class="panel glass"><div class="section-head"><div><span class="kicker">TODAY</span><h2>Ritme belajar</h2></div><span class="metric">7 hari</span></div><div class="week-bars" id="weekBars"></div><small class="panel-note">Target harian dihitung dari aktivitas lokal perangkat.</small></article>
+        <article class="panel glass"><div class="section-head"><div><span class="kicker">STATUS</span><h2>Learning Core</h2></div><span class="status-ok">ONLINE</span></div><div class="core-list"><div><span data-icon="check"></span>Data lokal aman</div><div><span data-icon="bolt"></span>Animasi hemat GPU</div><div><span data-icon="sync"></span>Progress tersimpan otomatis</div></div></article>
+      </section>
+    </section>
+
+    <section id="curriculum" class="page"><div class="page-title"><span class="kicker">LEARNING CORE</span><h1>Kurikulum</h1><p>Materi inti sekolah disusun ringkas agar mudah dipindai.</p></div><div class="module-grid" id="moduleGrid"></div></section>
+
+    <section id="iq" class="page"><div class="page-title"><span class="kicker">COGNITIVE LAB</span><h1>Tes IQ & Logika</h1><p>Simulasi latihan penalaran. Skor mengukur performa pada soal di aplikasi, bukan IQ klinis.</p></div><div class="quiz glass"><div class="quiz-top"><span id="iqProgress">SOAL 1 / 10</span><button id="newIq" class="ghost">Set baru</button></div><div class="quiz-bar"><i id="iqBar"></i></div><h2 id="iqQuestion">Memuat soal...</h2><div id="iqAnswers" class="answers"></div><div id="iqResult" class="quiz-result hidden"></div></div></section>
+
+    <section id="japanese" class="page"><div class="page-title"><span class="kicker">LANGUAGE LAB</span><h1>Bahasa Jepang</h1><p>Mulai dari karakter, suara, kosakata, lalu percakapan.</p></div><div class="lesson-grid"><article class="lesson glass"><span>あ</span><b>Hiragana</b><small>46 karakter dasar</small><button>Mulai latihan</button></article><article class="lesson glass"><span>カ</span><b>Katakana</b><small>46 karakter dasar</small><button>Mulai latihan</button></article><article class="lesson glass"><span>語</span><b>Kosakata</b><small>500 kata umum</small><button>Mulai latihan</button></article><article class="lesson glass"><span>話</span><b>Percakapan</b><small>Situasi sehari-hari</small><button>Mulai latihan</button></article></div></section>
+
+    <section id="psychology" class="page"><div class="page-title"><span class="kicker">MIND LAB</span><h1>Psikologi & Social Intelligence</h1><p>Materi difokuskan pada pemahaman diri, komunikasi, literasi sosial, dan mengenali manipulasi agar tidak mudah dieksploitasi.</p></div><div class="mind-grid"><article class="mind glass"><span data-icon="mind"></span><b>Emotional Intelligence</b><p>Mengenali emosi dan memilih respons yang sehat.</p></article><article class="mind glass"><span data-icon="shield"></span><b>Manipulation Defense</b><p>Mengenali gaslighting, tekanan sosial, dan taktik pengaruh yang tidak sehat.</p></article><article class="mind glass"><span data-icon="chat"></span><b>Persuasi Etis</b><p>Komunikasi yang jelas, negosiasi, dan membangun kepercayaan tanpa mengeksploitasi.</p></article><article class="mind glass"><span data-icon="scan"></span><b>Critical Thinking</b><p>Menguji klaim, bias, dan pola informasi sebelum mengambil keputusan.</p></article></div></section>
+
+    <section id="focus" class="page"><div class="page-title"><span class="kicker">DEEP WORK</span><h1>Focus Room</h1><p>Timer ringan untuk sesi belajar fokus.</p></div><div class="focus-card glass"><span class="kicker">POMODORO</span><div id="timer">25:00</div><div><button id="timerStart" class="primary">Mulai</button><button id="timerReset" class="ghost">Reset</button></div></div></section>
+
+    <section id="notes" class="page"><div class="page-title"><span class="kicker">KNOWLEDGE VAULT</span><h1>Catatan</h1><p>Tersimpan otomatis di perangkat.</p></div><textarea id="notesArea" class="notes glass" placeholder="Tulis ringkasan, target, atau ide belajar..."></textarea></section>
+
+    <section id="progress" class="page"><div class="page-title"><span class="kicker">INSIGHT</span><h1>Progress</h1><p>Ringkasan aktivitas LearnX di perangkat ini.</p></div><div class="progress-grid"><article class="panel glass"><span class="kicker">SESSION</span><strong id="sessionCount">0</strong><small>kunjungan dashboard</small></article><article class="panel glass"><span class="kicker">IQ</span><strong id="bestIq">—</strong><small>skor terbaik</small></article><article class="panel glass"><span class="kicker">NOTES</span><strong id="noteCount">0</strong><small>karakter catatan</small></article></div></section>
+
+    <section id="settings" class="page"><div class="page-title"><span class="kicker">SYSTEM</span><h1>Pengaturan</h1><p>Kontrol tampilan dan performa.</p></div><div class="settings glass"><label><span>Animasi live</span><input id="motionToggle" type="checkbox" checked><i></i></label><label><span>Efek sentuhan</span><input id="touchToggle" type="checkbox" checked><i></i></label><label><span>Auto-play Dashboard</span><input id="autoPlayToggle" type="checkbox" checked><i></i></label><label><span>Mode hemat gerakan</span><input id="reducedToggle" type="checkbox"><i></i></label></div></section>
+  </main>
+</div>
+
+<div id="musicPanel" class="music-panel glass hidden">
+  <div class="music-head"><div><span class="kicker">MUSIC ISLAND</span><b>Study audio</b></div><button id="musicClose" class="icon-button"><span data-icon="close"></span></button></div>
+  <div class="music-now"><span class="music-disc"></span><div><b id="trackName">No track</b><small id="trackState">Pilih musik</small></div><button id="musicPlay" class="primary small">Play</button></div>
+  <input id="musicSearch" class="music-search" placeholder="Cari musik..." autocomplete="off">
+  <div id="musicList" class="music-list"></div>
+  <label class="upload-music">Tambah file musik dari perangkat<input id="musicFile" type="file" accept="audio/*"></label>
+  <audio id="audio" preload="metadata"></audio>
+</div>
+
+<div id="command" class="command hidden"><div class="command-box glass"><input id="commandSearch" placeholder="Ketik perintah..." autofocus><div id="commandList"></div></div></div>
+<div id="toast" class="toast"></div>
+<script src="icon-system.js?v=final3"></script>
+<script src="app.js?v=final3"></script>
+</body>
+</html>
